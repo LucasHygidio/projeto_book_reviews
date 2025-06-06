@@ -53,7 +53,7 @@ Route::controller(ReviewController::class)->group(function () {
 Route::controller(UserController::class)->group(function () {
     Route::get('/users', 'get');
     Route::get('/users/{id}', 'details');
-    Route::get('/users/reviews/{id}', 'findReview');
+    Route::get('/users/reviews/{id}', 'findReview'); //listar reviews de um user
     Route::post('/users', 'store');
     Route::patch('/users/{id}', 'update');
     Route::delete('/users/{id}', 'delete');

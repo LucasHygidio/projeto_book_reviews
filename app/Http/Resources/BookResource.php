@@ -17,11 +17,11 @@ class BookResource extends JsonResource
         return [
             'id'=> $this->id,
             'title'=> $this->title,
-            'author' => new AuthorResource($this->whenLoaded('author')),
+            'author' => new AuthorResource($this->whenLoaded('author')), //o whenLoaded so retorna se estiver carregado o with()
             'summary'=> $this->summary,
             'genre' => new GenreResource($this->whenLoaded('genre')),
-            'reviews' => ReviewResource::collection($this->whenLoaded('review')),
-
+            'reviews' => ReviewResource::collection($this->whenLoaded('review')), // Transforma a coleção de reviews carregada em uma lista de dicionários formatados com ReviewResource
+            
         ];
     }
 }
