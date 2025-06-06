@@ -37,27 +37,8 @@ class BookService
     {
         return $this->bookRepository->delete($id);
     }
-
-    public function getWithAuthor()
-    {
-        return $this->bookRepository->getWithAuthor();
-    }
-
-    public function findAuthor(int $id)
-    {
-        return $this->bookRepository->findAuthor($id);
-    }
-
-    public function getWithGenre()
-    {
-        return $this->bookRepository->getWithGenre();
-    }
-
-    public function findGenre(int $id)
-    {
-        return $this->bookRepository->findGenre($id);
-    }
-
+    
+    //rotas adicionais
     public function findReviews(int $id)
     {
         return $this->bookRepository->findReviews($id);

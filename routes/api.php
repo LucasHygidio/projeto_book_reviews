@@ -15,7 +15,7 @@ Route::get('/user', function (Request $request) {
 Route::controller(AuthorController::class)->group(function () {
     Route::get('/authors', 'get');
     Route::get('/authors/books', 'getWithBooks');//consertar
-    Route::get('/authors/books/{id}', 'findBook');
+    Route::get('/authors/books/{id}', 'findBook');//listar livros de um autor
     Route::get('/authors/{id}', 'details');
     Route::post('/authors', 'store');
     Route::patch('/authors/{id}', 'update');
@@ -24,22 +24,18 @@ Route::controller(AuthorController::class)->group(function () {
 
 Route::controller(GenreController::class)->group(function () {
     Route::get('/genres', 'get');
-    Route::get('/genres/books', 'getWithBooks');
+    Route::get('/genres/books', 'getWithBooks');//genero com seus livros
     Route::get('/genres/{id}', 'details');
     Route::post('/genres', 'store');
     Route::patch('/genres/{id}', 'update');
     Route::delete('/genres/{id}', 'delete');
-    Route::get('/genres/books/{id}', 'findBooks');
+    Route::get('/genres/books/{id}', 'findBooks');//livros de um genero
 });
 
 Route::controller(BookController::class)->group(function () {
     Route::get('/books', 'get');
-    Route::get('/books/genres/authors/reviews','getWithGenreAuthorReviews');
-    Route::get('/books/authors', 'getWithAuthor');//consertar
-    Route::get('/books/genres', 'getWithGenre');//consertar
-    Route::get('/books/authors/{id}', 'findAuthor');
-    Route::get('/books/genres/{id)', 'findGenre');//consertar
-    Route::get('/books/reviews/{id}', 'findReview');
+    Route::get('/books/genres/authors/reviews','getWithGenreAuthorReviews');//rota adicional de listar livros com review autor e genero
+    Route::get('/books/reviews/{id}', 'findReview');//listar reviews de um livro
     Route::get('/books/{id}', 'details');
     Route::post('/books', 'store');
     Route::patch('/books/{id}', 'update');

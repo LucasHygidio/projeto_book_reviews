@@ -37,28 +37,6 @@ class BookRepository
         return $book;
     }
 
-    public function getWithAuthor()
-    {
-        return Book::with('author')->get();
-    }
-
-    public function findAuthor(int $id)
-    {
-        $book = $this->details($id);
-        return $book->author;
-    }
-
-    public function getWithGenre()
-    {
-        return Book::with('genre')->get();
-    }
-
-    public function findGenre(int $id)
-    {
-        $book = $this->details($id);
-        return $book->genre;
-    }
-
     public function findReviews(int $id)
     {
         $book = $this->details($id);

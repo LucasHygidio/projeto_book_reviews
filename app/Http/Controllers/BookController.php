@@ -66,41 +66,6 @@ class BookController extends Controller
         return new BookResource($book);
     }
 
-    //Retorno dos livros com os autores
-    public function getWithAuthor()
-    {
-        $books = $this->BookService->getWithAuthor();
-        return BookResource::collection($books);
-    }
-
-    //Retorno de um autor de um livro especifico
-    public function findAuthor(int $id)
-    {
-        try{
-            $author = $this->BookService->findAuthor($id);
-        }catch(ModelNotFoundException $e){
-            return response()->json(['error'=>'Autor não encontrado'],404);
-        }
-        return new AuthorResource($author);
-    }
-
-    //Buscar livros com os generos
-    public function getWithGenre()
-    {
-        $books = $this->BookService->getWithGenre();
-        return BookResource::collection($books);
-    }
-
-    //Buscar livros de um genero especifico
-    public function findGenre(int $id)
-    {
-        try{
-            $genre = $this->BookService->findGenre($id);
-        }catch(ModelNotFoundException $e){
-            return response()->json(['error'=>'Gênero não encontrado'],404);
-        }
-        return new GenreResource($genre);
-    }
 
     public function findReview(int $id)
     {

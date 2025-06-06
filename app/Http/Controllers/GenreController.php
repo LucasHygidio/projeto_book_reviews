@@ -70,7 +70,7 @@ class GenreController extends Controller
         return GenreResource::collection($genre);
     }
 
-    //Listar todos os livros de um genre especifico
+    //Listar todos os livros de um genero especifico
     public function findBooks(int $id){
         try {
             $books = $this->genreService->findBooks($id);
