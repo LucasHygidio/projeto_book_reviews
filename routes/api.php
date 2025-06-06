@@ -14,7 +14,7 @@ Route::get('/user', function (Request $request) {
 
 Route::controller(AuthorController::class)->group(function () {
     Route::get('/authors', 'get');
-    Route::get('/authors/books', 'getWithBooks');//consertar
+    Route::get('/authors/books', 'getWithBooks');//listar autores com seus livros 
     Route::get('/authors/books/{id}', 'findBook');//listar livros de um autor
     Route::get('/authors/{id}', 'details');
     Route::post('/authors', 'store');
